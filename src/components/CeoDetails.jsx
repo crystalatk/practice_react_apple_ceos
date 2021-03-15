@@ -1,4 +1,4 @@
-import { useParams, useEffect, useState } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const CeoDetails = ({ ceos }) => {
   const { ceo_slug } = useParams();
@@ -8,7 +8,14 @@ const CeoDetails = ({ ceos }) => {
 
   //   const ceo = await fetch(`http://127.0.0.1:3333/ceo/${ceo_slug}`)
 
-  return <p>{ceo.name}</p>;
+  return (
+    <>
+      <h1>{ceo.name}</h1>
+      <h3>
+        {ceo.name} was CEO of Apple in {ceo.year}
+      </h3>
+    </>
+  );
 };
 
 export default CeoDetails;
