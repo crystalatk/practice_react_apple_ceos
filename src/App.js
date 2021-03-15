@@ -1,14 +1,22 @@
 import CeoList from "./components/CeoList";
-import CeoDetails from "./components/CeoDetails";
+import AddCeo from "./components/AddCeo";
 import { BrowserRouter as Router } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [reload, setReload] = useState(false);
+
+  const handleReload = (status) => {
+    setReload(status);
+  };
+
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">APPLE CEOs</header>
+      <AddCeo handleReload={handleReload} />
       <Router>
-        <CeoList />
+        <CeoList reload={reload} />
       </Router>
     </div>
   );

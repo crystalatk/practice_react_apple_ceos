@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Route, Link, useHistory } from "react-router-dom";
 import CeoDetails from "./CeoDetails";
 
-const CeoList = () => {
+const CeoList = ({ reload }) => {
   const [ceos, setCeos] = useState([]);
   const history = useHistory();
+
   useEffect(() => {
     (async () => {
       const ceoData = await fetch(
@@ -12,7 +13,7 @@ const CeoList = () => {
       ).then((response) => response.json());
       setCeos(ceoData);
     })();
-  }, []);
+  }, [reload]);
 
   return (
     <>
